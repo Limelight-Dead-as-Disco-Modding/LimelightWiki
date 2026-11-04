@@ -58,107 +58,92 @@
                 </a>
             </div>
 
-            <nav
-                class="documentation-navigation"
-                aria-label="Documentation">
-                <p class="navigation-label">BEHIND THE CURTAIN</p>
-
-                <div class="navigation-journey-group">
-                    <a
-                        class="navigation-link"
-                        href="development-journey.html">
-                        <span class="navigation-diamond" aria-hidden="true"></span>
-                        <span>Development Journey</span>
-                    </a>
-
-                    <a
-                        class="navigation-link navigation-sub-link"
-                        href="work-in-progress.html">
-                        <span class="navigation-diamond" aria-hidden="true"></span>
-                        <span>Work in Progress</span>
-                    </a>
-
-                    <a
-                        class="navigation-link navigation-sub-link"
-                        href="general-ideas.html">
-                        <span class="navigation-diamond" aria-hidden="true"></span>
-                        <span>General Ideas</span>
-                    </a>
-
-                </div>
-
-                <p class="navigation-label">START HERE</p>
-
+            <nav class="documentation-navigation" aria-label="Documentation">
+                <p class="navigation-label">DOCUMENTATION</p>
                 <a class="navigation-link" href="index.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Documentation Home</span>
                 </a>
 
-                <a class="navigation-link" href="getting-started.html">
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Limelight</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="getting-started.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Getting Started</span>
                 </a>
-
-                <a class="navigation-link" href="mod-compatibility.html">
+                <a class="navigation-link navigation-sub-link" href="mod-compatibility.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Mod Compatibility</span>
                 </a>
-
-                <p class="navigation-label">ARENA AUTHORING</p>
+                <a class="navigation-link navigation-sub-link" href="live-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Live Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="profiles.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Profiles</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="xlr8-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>XLR8 Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="nexus-mods.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Nexus Mods</span>
+                </a>
+                    </div>
+                </details>
 
                 <a class="navigation-link" href="arenakit.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>ArenaKit</span>
                 </a>
 
-                <p class="navigation-label">LIVE MODDING</p>
-
-                <a class="navigation-link" href="live-loader.html">
+                <p class="navigation-label">PROJECTS</p>
+                <a class="navigation-link" href="project-encore.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
-                    <span>Live Loader</span>
+                    <span>Project Encore</span>
                 </a>
-
-                <a class="navigation-link" href="profiles.html">
-                    <span class="navigation-diamond" aria-hidden="true"></span>
-                    <span>Profiles</span>
-                </a>
-
-                <a class="navigation-link" href="xxlr8-loader.html">
-                    <span class="navigation-diamond" aria-hidden="true"></span>
-                    <span>XLR8 Loader</span>
-                </a>
-
-                <a class="navigation-link" href="nexus-mods.html">
-                    <span class="navigation-diamond" aria-hidden="true"></span>
-                    <span>Nexus Mods</span>
-                </a>
-
                 <a class="navigation-link" href="multiplayer.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>LimelightMP (Experimental)</span>
                 </a>
 
-                <p class="navigation-label">SUPPORT</p>
-
-                <a class="navigation-link" href="testing-bug-reports.html">
+                <p class="navigation-label">ABOUT &amp; SUPPORT</p>
+                <a class="navigation-link active" href="development-journey.html" aria-current="page">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Development Journey</span>
+                </a>
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Support</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="testing-bug-reports.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Testing &amp; Bug Reports</span>
                 </a>
-
-                <a class="navigation-link" href="troubleshooting.html">
+                <a class="navigation-link navigation-sub-link" href="troubleshooting.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Troubleshooting</span>
                 </a>
-
-                <a class="navigation-link" href="privacy.html">
+                <a class="navigation-link navigation-sub-link" href="privacy.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Privacy</span>
                 </a>
-
-                <a class="navigation-link" href="credits.html">
+                <a class="navigation-link navigation-sub-link" href="credits.html">
                     <span class="navigation-diamond" aria-hidden="true"></span>
                     <span>Credits</span>
                 </a>
+                    </div>
+                </details>
             </nav>
 
             <div class="sidebar-status">
@@ -855,34 +840,26 @@
                             </p>
 
                             <p>
-                                Today the family is working across several stages at
-                                once: the main Limelight release line, Stagehand's
-                                scripting prototype, ArenaKit compatibility,
-                                experimental multiplayer and the first Limelight Probe
-                                build. The current board records which parts are real,
-                                which are still being proven and which have not started.
+                                Project Encore takes that work in another direction:
+                                a roguelite run inside Infinite Disco, with skills to
+                                earn, bosses to survive and a contract that keeps
+                                asking for one more performance. I'm building it
+                                alongside the tools that made it possible.
                             </p>
 
                             <div class="journey-next-grid">
-                                <a
-                                    class="next-page-card"
-                                    href="work-in-progress.html">
+                                <a class="next-page-card" href="project-encore.html">
                                     <span>
-                                        <small>ON THE WORKBENCH</small>
-                                        <strong>See what is being built now</strong>
+                                        <small>ONE MORE ROUND</small>
+                                        <strong>Explore Project Encore</strong>
                                     </span>
-
                                     <span class="next-page-arrow" aria-hidden="true">→</span>
                                 </a>
-
-                                <a
-                                    class="next-page-card"
-                                    href="general-ideas.html">
+                                <a class="next-page-card" href="arenakit.html">
                                     <span>
-                                        <small>WAITING IN THE WINGS</small>
-                                        <strong>Explore the General Ideas board</strong>
+                                        <small>BUILD YOUR OWN STAGE</small>
+                                        <strong>Open the ArenaKit guide</strong>
                                     </span>
-
                                     <span class="next-page-arrow" aria-hidden="true">→</span>
                                 </a>
                             </div>

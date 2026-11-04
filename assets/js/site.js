@@ -40,6 +40,7 @@ function updateActiveNavigationLink() {
         "xlr8-loader.html": "xlr8-loader",
         "nexus-mods.html": "nexus-mods",
         "multiplayer.html": "multiplayer",
+        "project-encore.html": "project-encore",
         "development-journey.html": "development-journey",
         "testing-bug-reports.html": "testing-bug-reports",
         "troubleshooting.html": "troubleshooting",

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Project Encore: a Dead as Disco roguelite prototype with five-round upgrades, escalating bosses, changing arenas and community scores. The vision, current progress and next steps.">
+
+    <title>Project Encore | Limelight Documentation</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/images/limelight-favicon.png">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/styles.css">
+
+    <script
+        src="assets/js/site.js"
+        defer>
+    </script>
+</head>
+
+<body data-page="project-encore">
+    <a
+        class="skip-link"
+        href="#main-content">
+        Skip to documentation
+    </a>
+
+    <div class="site-shell">
+        <aside
+            id="documentationSidebar"
+            class="sidebar">
+            <div class="sidebar-brand">
+                <a
+                    class="brand-link"
+                    href="index.html"
+                    aria-label="Limelight documentation home">
+                    <span
+                        class="brand-mark"
+                        aria-hidden="true">
+                        <span class="brand-mark-inner">L</span>
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>LIMELIGHT</strong>
+                        <small>DOCUMENTATION</small>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="documentation-navigation" aria-label="Documentation">
+                <p class="navigation-label">DOCUMENTATION</p>
+                <a class="navigation-link" href="index.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Documentation Home</span>
+                </a>
+
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Limelight</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="getting-started.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Getting Started</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="mod-compatibility.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Mod Compatibility</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="live-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Live Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="profiles.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Profiles</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="xlr8-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>XLR8 Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="nexus-mods.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Nexus Mods</span>
+                </a>
+                    </div>
+                </details>
+
+                <a class="navigation-link" href="arenakit.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>ArenaKit</span>
+                </a>
+
+                <p class="navigation-label">PROJECTS</p>
+                <a class="navigation-link active" href="project-encore.html" aria-current="page">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Project Encore</span>
+                </a>
+                <a class="navigation-link" href="multiplayer.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>LimelightMP (Experimental)</span>
+                </a>
+
+                <p class="navigation-label">ABOUT &amp; SUPPORT</p>
+                <a class="navigation-link" href="development-journey.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Development Journey</span>
+                </a>
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Support</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="testing-bug-reports.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Testing &amp; Bug Reports</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="troubleshooting.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Troubleshooting</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="privacy.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Privacy</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="credits.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Credits</span>
+                </a>
+                    </div>
+                </details>
+            </nav>
+
+            <div class="sidebar-status">
+                <span class="status-dot" aria-hidden="true"></span>
+
+                <div>
+                    <strong>ENCORE PROTOTYPE</strong>
+                    <span>A run worth coming back for.</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="page-column">
+            <header class="topbar">
+                <button
+                    id="menuToggle"
+                    class="menu-button"
+                    type="button"
+                    aria-label="Open documentation navigation"
+                    aria-controls="documentationSidebar"
+                    aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="topbar-title">
+                    <span class="topbar-diamond" aria-hidden="true"></span>
+                    <strong>LIMELIGHT</strong>
+                    <span>/</span>
+                    <span>DEAD AS DISCO MOD MANAGER</span>
+                </div>
+
+                <a
+                    class="topbar-link"
+                    href="https://github.com/Limelight-Dead-as-Disco-Modding/Limelight-Encore"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    VIEW ON GITHUB
+                </a>
+            </header>
+
+                        <main id="main-content" class="documentation-page encore-page">
+                <div class="breadcrumbs">
+                    <a href="index.html">DOCUMENTATION</a>
+                    <span>/</span>
+                    <span>PROJECT ENCORE</span>
+                </div>
+
+                <header class="documentation-hero encore-hero">
+                    <span class="eyebrow">A ROGUELITE FOR DEAD AS DISCO</span>
+                    <h1>PROJECT ENCORE</h1>
+                    <p>
+                        Five rounds. Pick an upgrade. Survive the headliners.
+                        I want Infinite Disco to become a run you build as you play,
+                        with a new reason to come back every time Charlie falls. I also just
+                        love games like this and I take heavy inspiration from ones such as:
+                        ROR2 and Vampire Surviovrs. Dead As Discos gameplay loop is disgutingly
+                        addicting. Why not add a little pesaz? 
+                    </p>
+                    <div class="encore-meta" aria-label="Project status">
+                        <span>PROTOTYPE · 0.1.0-alpha.2</span>
+                        <span>NO PUBLIC RELEASE YET</span>
+                        <span>UPDATED <time datetime="2026-11-04">4 NOVEMBER 2026</time></span>
+                    </div>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#the-run">THE RUN</a>
+                        <a class="button button-secondary" href="#current-progress">WHERE IT STANDS</a>
+                    </div>
+                </header>
+
+                <ol class="encore-flow" aria-label="The Encore run loop">
+                    <li><strong>FIGHT</strong><span>Five rounds of Infinite Disco</span></li>
+                    <li><strong>CHOOSE</strong><span>One of three skill or stat rewards</span></li>
+                    <li><strong>HEADLINER</strong><span>A boss stage every 15 rounds</span></li>
+                    <li><strong>ENCORE</strong><span>Stronger rewards, tougher enemies, another arena</span></li>
+                </ol>
+
+                <div class="article-layout">
+                    <article class="article">
+                        <section id="the-idea" class="guide-section">
+                            <h2>The Idea</h2>
+                            <p>
+                                I love the idea of going into Infinite Disco with a
+                                simple loadout and coming out with a completely
+                                ridiculous build. Earn the game's existing skills,
+                                stack new bonuses and keep pushing until the run
+                                finally wins. Then start again with different choices.
+                            </p>
+                            <p>
+                                Encore should feel at home in Dead as Disco: the
+                                music, the combat, and Charlie getting
+                                into yet another questionable arrangement with Vice.
+                                Apparently one contract wasn't enough.
+                            </p>
+                        </section>
+
+                        <section id="the-run" class="guide-section">
+                            <h2>How I Want a Run to Work</h2>
+                            <ol class="guide-list">
+                                <li>
+                                    <strong>Enter through the Dive Bar.</strong>
+                                    The drums offer a choice between Encore and
+                                    playing the drums normally. This menu exists as I had made
+                                    the entrance, button and logic to "Enter The Encore" the day
+                                    before they added the ability to play the drums :D
+                                    Charlie and Vice have their conversation, then Charlie signs.
+                                    Yes yes the dialogue isnt my finest work, I am not a writer.
+                                </li>
+                                <li>
+                                    <strong>Fight five rounds.</strong> At each
+                                    five-round break, the arena stays clear while
+                                    you pick one of three rewards.
+                                </li>
+                                <li>
+                                    <strong>Face the headliners.</strong> Round 15
+                                    adds one boss after the regular wave. Round 30
+                                    adds two, round 45 adds three, and the count
+                                    keeps increasing. Well until a certain point, Im not sure what
+                                    I am going to do in that regard, possbily waves of bosses? I am not sure yet.
+                                    Groups can repeat a boss or
+                                    mix different bosses.
+                                </li>
+                                <li>
+                                    <strong>Take the boss reward and change stage.</strong>
+                                    A Charlie or Vice quip appears on the same kind
+                                    of animated card as the game's wave number. You know, 
+                                    the lil "Elite Round 15", I thought adding this would give it a little charm :D
+                                    After the reward choice, the arena changes and
+                                    the next stretch has tougher enemies.
+                                </li>
+                                <li>
+                                    <strong>Keep your build for the run.</strong>
+                                    Upgrades, skills and music carry on between
+                                    arenas. Death ends that build; the next run
+                                    starts fresh. So build your glass canon or youre immovable object, it wont matter if the disco ends!
+                                </li>
+                            </ol>
+                            <p>
+                                The current arena cycle is Disco Floor, Bubblepop,
+                                Astral Waters and Subcity Crypt. Each boss clear
+                                currently adds 25% effective enemy durability and
+                                15% base enemy damage. Those are starting balance
+                                values, and I expect them to change with testing.
+                                I am not very good at balancing off the get go!
+                            </p>
+                        </section>
+
+                        <section id="rewards" class="guide-section">
+                            <h2>Skills, Stats and Stronger Boss Rewards</h2>
+                            <p>
+                                Normal choices mix existing combat skills, such as
+                                Drumstick Toss, Heavy Kick and Windmill, with
+                                run-only bonuses such as extra health and damage.
+                            </p>
+                            <p>
+                                Main skills are a rare normal roll: each normal
+                                menu currently has a 10% chance of offering an
+                                eligible one. That pool includes Fever Rush, Bass
+                                Invader, Singularity, Show Stopper, Thunderstruck
+                                and Phantom Dance.
+                            </p>
+                            <p>
+                                Boss rewards should feel worth the fight. The
+                                current mixed pool guarantees at least one
+                                available main-skill choice when there's room
+                                for it, alongside bonuses such as +25% base
+                                damage, two extra maximum hearts or 15% base
+                                damage resistance. Choosing a stat card is still
+                                allowed; the main skill is a guaranteed option.
+                            </p>
+                            <p>
+                                Normal damage rewards currently add 10% of the
+                                captured base value, so two add 20%. Resistance
+                                is capped at 60%. Faster movement and attack
+                                speed are part of the plan, but attack-speed
+                                upgrades aren't connected and the movement
+                                reward is withheld when its effect is unavailable.
+                            </p>
+                        </section>
+
+                        <section id="current-progress" class="guide-section">
+                            <h2>What I Have So Far</h2>
+                            <div class="notice">
+                                <strong>A PLAYABLE PROTOTYPE, STILL IN TESTING</strong>
+                                <p>
+                                    The installed prototype is 0.1.0-alpha.2; the
+                                    next fixes are prepared as 0.1.0-alpha.2+dev.1.
+                                    The last validated game build was CL-34941.
+                                    Dead as Disco is now on CL-35029, which still
+                                    needs a compatibility check before those fixes
+                                    can be installed. There isn't a public Encore
+                                    release yet.
+                                </p>
+                            </div>
+                            <h3>Seen Working In-Game</h3>
+                            <ul class="guide-list">
+                                <li>Main-menu entry, the Encore / Play Drums choice, Charlie and Vice's dialogue, the stock signing sequence and automatic Infinite Disco startup.</li>
+                                <li>Five-round reward breaks, later mouse selections and existing combat-skill grants.</li>
+                                <li>Damage upgrades with a verified live damage-multiplier change; individual hit damage still needs measurement.</li>
+                                <li>A round-15 boss spawning, its defeat being recognised and a stronger boss reward being granted.</li>
+                                <li>The latest test accepted the arena change and the stage visibly changed behind the reward menu.</li>
+                            </ul>
+                            <h3>Being Fixed or Checked Next</h3>
+                            <ul class="guide-list">
+                                <li><strong>Arena handoff:</strong> the reward screen is still stuck on “Changing arena…” after the visible swap. Resuming the next round is not working reliably yet.</li>
+                                <li><strong>Boss quips:</strong> the stock wave-card presentation is connected, but the latest test rejected its label check, so the line did not appear.</li>
+                                <li><strong>Reward presentation:</strong> the cards use Infinite Disco's angled shapes, neon frame and font. Smaller text and an empty lower area prepare them for custom icons.</li>
+                                <li><strong>Longer runs:</strong> repeated arena changes, two- and three-boss stages, save restoration, controller use and a real completed run reaching the community board still need full live checks.</li>
+                            </ul>
+                            <p>
+                                Automated checks help catch broken state changes
+                                and API assumptions. They don't replace playing
+                                through the whole thing. That's the stage I'm at.
+                            </p>
+                        </section>
+
+                        <section id="music" class="guide-section">
+                            <h2>The Music Keeps Going</h2>
+                            <p>
+                                I don't want an Encore run to end because one song
+                                finished. Startup builds a shuffled, looping
+                                playlist from the available base-game tracks and
+                                valid imported songs. The run continues when the
+                                track changes, with no manual single-song setup.
+                            </p>
+                        </section>
+
+                        <section id="entrance" class="guide-section">
+                            <h2>Charlie, Vice and the Contract</h2>
+                            <p>
+                                The entrance already uses the game's dialogue
+                                panel, portraits, vocal noises (Vice just makes strange noises I will be honest) and hold-to-sign
+                                prompt. It follows the normal interaction and
+                                dialogue controls for mouse, keyboard and controller. Its basically the start of the tutorial, but I thought it was cool :D
+                            </p>
+                            <p>
+                                I'm also building an original transition in Unreal
+                                Engine 5.7.4 to play after Charlie signs Vice's
+                                contract. The idea is a short camera move, a
+                                contract glow, a drum hit and a flash into Encore.
+                                I like the energy of the game's cinematic
+                                transitions; this one should have its own identity. Again, as megamind once said "Presentation!"
+                            </p>
+                            <p>
+                                The sequence has a camera and lighting blockout,
+                                Charlie's model and animations, the contract and
+                                drum assets in the editor. Replacing the remaining
+                                placeholders, lining up the performance and
+                                connecting the finished shot to the game are
+                                still ahead. The full custom cinematic isn't
+                                playing in the current prototype. 
+                            </p>
+                        </section>
+
+                        <section id="saves" class="guide-section">
+                            <h2>A Fresh Build for Every Run</h2>
+                            <p>
+                                Encore should earn its skills during the run,
+                                rather than inherit a finished story loadout. The
+                                temporary-save system creates a separate
+                                playthrough with the tutorial flags set and records
+                                your original slot before switching.
+                            </p>
+                            <p>
+                                It's designed to restore the original slot and
+                                remove only the temporary run when you die or leave,
+                                with recovery after a crash. End-to-end restoration
+                                still needs live validation. Music, settings and
+                                the game's shared GlobalProgress remain shared;
+                                this doesn't isolate every piece of save data.
+                                Keep a backup of normal saves during testing.
+                            </p>
+                        </section>
+
+                        <section id="leaderboards" class="guide-section">
+                            <h2>A Shared Encore Leaderboard</h2>
+                            <p>
+                                I want the same scores available in-game and on
+                                the wiki. The community service is deployed on
+                                Cloudflare Workers with a D1 database. It uses the already packed steam goodies to read your steam ID and username and post your results!
+                                I will make a "telematry" setting incase people dont want this. But this is just what the base game does :D
+                                Encore has an in-game score menu using the game's high-score
+                                rows, plus local records and background submission. 
+                            </p>
+                            <p>
+                                It uses the player's Steam display name and stable
+                                Steam ID. Scores count completed rounds, not the
+                                round you die in, and keep a personal best for each
+                                account in each ruleset and game build. These are
+                                self-reported community scores, separate from the
+                                game's official boards. Gameplay and Steam identity
+                                aren't verified by the server.
+                            </p>
+                            <p>
+                                The service has been checked independently, but
+                                submission and display of a real completed run
+                                still need a full live test. A readable leaderboard
+                                on this website is planned; this project page
+                                doesn't fetch or publish scores. Online submission
+                                can be disabled in Encore's leaderboard settings file.
+                            </p>
+                        </section>
+
+                        <section id="next" class="guide-section">
+                            <h2>What I'm Planning Next</h2>
+                            <ol class="guide-list">
+                                <li><strong>Finish the run loop:</strong> clear the boss, show the quip, choose a reward, change arena and reliably start the next round.</li>
+                                <li><strong>Prove longer runs:</strong> test escalating boss groups and tune enemy difficulty against the builds players can actually make.</li>
+                                <li><strong>Finish the presentation:</strong> custom reward icons, clearer card text and Unreal Widget Blueprint menus, while keeping the original controls.</li>
+                                <li><strong>Complete the entrance:</strong> finish the custom contract-to-arena cinematic and its sound and timing.</li>
+                                <li><strong>Verify saves and scores:</strong> complete death, exit and crash-recovery checks, then test real community submissions and add the wiki board.</li>
+                                <li><strong>Expand the builds:</strong> connect more stat bonuses, including movement and attack speed, then explore custom items once the core run is solid.</li>
+                            </ol>
+                            <p>
+                                Lua currently owns the run rules and balancing;
+                                the native bridge handles the game APIs that need
+                                it. I want the menus built as proper Unreal assets
+                                over time, and any further performance changes
+                                should follow what we measure in-game.
+                            </p>
+                            <p>
+                                The order can change as testing finds things.
+                                I'm aiming for a complete, repeatable run before
+                                putting a release date on it.
+                            </p>
+                            <a class="next-page-card" href="https://github.com/Limelight-Dead-as-Disco-Modding/Limelight-Encore" target="_blank" rel="noopener noreferrer">
+                                <span><small>FOLLOW THE PROJECT</small><strong>Limelight Encore on GitHub</strong></span>
+                                <span class="next-page-arrow" aria-hidden="true">→</span>
+                            </a>
+                        </section>
+                    </article>
+
+                    <aside class="table-of-contents" aria-label="On this page">
+                        <strong>ON THIS PAGE</strong>
+                        <a href="#the-idea">The Idea</a>
+                        <a href="#the-run">The Run</a>
+                        <a href="#rewards">Skills &amp; Rewards</a>
+                        <a href="#current-progress">Current Progress</a>
+                        <a href="#music">The Music</a>
+                        <a href="#entrance">The Entrance</a>
+                        <a href="#saves">Fresh Run Saves</a>
+                        <a href="#leaderboards">Leaderboards</a>
+                        <a href="#next">What's Next</a>
+                    </aside>
+                </div>
+            </main>
+
+            <footer class="site-footer">
+                <div>
+                    <strong>LIMELIGHT</strong>
+                    <span>Made by Henreh</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="credits.html">Credits</a>
+                    <a href="troubleshooting.html">Support</a>
+                    <a href="https://github.com/Henreh1" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
