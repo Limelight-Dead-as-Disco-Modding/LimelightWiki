@@ -8,6 +8,7 @@ const scores = document.getElementById("board-scores");
 const updated = document.getElementById("board-updated");
 const endpoint = "https://encore-leaderboard.encore-leaderboard.workers.dev/v1/encore/leaderboard";
 const scopes = {
+    playtest: { rulesetId: "encore-v2", gameBuildId: "CL-35029" },
     current: { rulesetId: "encore-v2", gameBuildId: "CL-34941" },
     legacy: { rulesetId: "encore-v1", gameBuildId: "CL-34094" }
 };
@@ -122,7 +123,8 @@ async function loadBoard() {
 
 boardSelect.addEventListener("change", loadBoard);
 refresh.addEventListener("click", loadBoard);
-if (new URLSearchParams(location.search).get("board") === "legacy") {
-    boardSelect.value = "legacy";
+const requestedBoard = new URLSearchParams(location.search).get("board");
+if (Object.hasOwn(scopes, requestedBoard)) {
+    boardSelect.value = requestedBoard;
 }
 loadBoard();
