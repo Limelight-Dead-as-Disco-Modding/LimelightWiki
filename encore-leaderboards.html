@@ -24,8 +24,8 @@
         src="assets/js/site.js"
         defer>
     </script>
-    <link rel="stylesheet" href="assets/css/encore-leaderboards.css?v=2">
-    <script src="assets/js/encore-leaderboards.js?v=3" defer></script>
+    <link rel="stylesheet" href="assets/css/encore-leaderboards.css?v=3">
+    <script src="assets/js/encore-leaderboards.js?v=4" defer></script>
 </head>
 
 <body data-page="encore-leaderboards">
@@ -207,14 +207,7 @@
                 <section class="board-panel" aria-label="Community leaderboard">
                     <div class="board-toolbar">
                         <div class="board-controls">
-                            <label class="board-control" for="board-scope">
-                                Ruleset and game build
-                                <select id="board-scope">
-                                    <option value="playtest">Encore v2 · CL-35029 (Playtest)</option>
-                                    <option value="current">Encore v2 · CL-34941</option>
-                                    <option value="legacy">Encore v1 · CL-34094</option>
-                                </select>
-                            </label>
+                            <span class="board-build">Encore v2 · CL-35029 (Playtest)</span>
                             <button id="board-refresh" type="button">Refresh</button>
                         </div>
                         <p class="board-status" id="board-status" role="status">Loading scores…</p>
@@ -227,6 +220,8 @@
                                     <th scope="col">Rank</th>
                                     <th scope="col">Player</th>
                                     <th scope="col">Rounds</th>
+                                    <th scope="col">Bosses</th>
+                                    <th scope="col">Combat time</th>
                                 </tr>
                             </thead>
                             <tbody id="board-scores"></tbody>

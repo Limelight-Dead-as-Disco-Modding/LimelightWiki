@@ -23,32 +23,25 @@
 .board-controls {
     display: flex;
     flex-wrap: wrap;
-    align-items: end;
+    align-items: center;
     gap: 10px;
 }
 
-.board-control {
-    display: grid;
-    gap: 5px;
+.board-build {
     color: var(--muted);
     font-size: 12px;
     font-weight: 650;
 }
 
-.board-controls select,
 .board-controls button {
     min-height: 40px;
     padding: 6px 12px;
     border: 1px solid var(--border-bright);
     border-radius: var(--small-radius);
-    color: var(--text);
+    color: var(--cyan);
     background: var(--panel-raised);
     font: inherit;
     font-size: 14px;
-}
-
-.board-controls button {
-    color: var(--cyan);
     cursor: pointer;
 }
 
@@ -79,6 +72,7 @@
 
 .board-table {
     width: 100%;
+    min-width: 460px;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
 }
@@ -98,8 +92,8 @@
     text-transform: uppercase;
 }
 
-.board-table th:last-child,
-.board-table td:last-child {
+.board-table th:nth-child(n + 3),
+.board-table td:nth-child(n + 3) {
     text-align: right;
 }
 

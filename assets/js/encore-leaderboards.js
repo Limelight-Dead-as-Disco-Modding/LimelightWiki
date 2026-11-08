@@ -1,17 +1,13 @@
 "use strict";
 
-const boardSelect = document.getElementById("board-scope");
 const refresh = document.getElementById("board-refresh");
 const status = document.getElementById("board-status");
 const table = document.getElementById("board-table");
 const scores = document.getElementById("board-scores");
 const updated = document.getElementById("board-updated");
 const endpoint = "https://encore-leaderboard.encore-leaderboard.workers.dev/v1/encore/leaderboard";
-const scopes = {
-    playtest: { rulesetId: "encore-v2", gameBuildId: "CL-35029" },
-    current: { rulesetId: "encore-v2", gameBuildId: "CL-34941" },
-    legacy: { rulesetId: "encore-v1", gameBuildId: "CL-34094" }
-};
+const scope = { rulesetId: "encore-v2", gameBuildId: "CL-35029" };
+const boardUrl = `${endpoint}?${new URLSearchParams(scope)}`;
 const steamAvatar = /^https:\/\/(?:avatars\.(?:(?:akamai|cloudflare|fastly)\.)?steamstatic\.com\/|steamcdn-a\.akamaihd\.net\/steamcommunity\/public\/images\/avatars\/[a-f0-9]{2}\/)[a-f0-9]{40}(?:_medium|_full)?\.jpg$/i;
 const numberFormat = new Intl.NumberFormat();
 let request;
@@ -23,10 +19,18 @@ function createCell(row, value, className = "") {
     return cell;
 }
 
+function formatTime(seconds) {
+    const total = Math.floor(seconds);
+    const minutes = Math.floor(total / 60);
+    return `${minutes}:${String(total % 60).padStart(2, "0")}`;
+}
+
 function validScore(entry) {
     return entry && typeof entry.displayName === "string"
         && entry.displayName.trim().length > 0 && entry.displayName.length <= 64
-        && Number.isSafeInteger(entry.roundsCompleted) && entry.roundsCompleted >= 0;
+        && Number.isSafeInteger(entry.roundsCompleted) && entry.roundsCompleted >= 0
+        && Number.isSafeInteger(entry.bossesDefeated) && entry.bossesDefeated >= 0
+        && Number.isFinite(entry.combatSeconds) && entry.combatSeconds >= 0;
 }
 
 function playerBadge(entry) {
@@ -57,6 +61,8 @@ function renderScores(entries) {
         name.textContent = entry.displayName;
         player.append(playerBadge(entry), name);
         createCell(row, numberFormat.format(entry.roundsCompleted), "board-rounds");
+        createCell(row, numberFormat.format(entry.bossesDefeated));
+        createCell(row, formatTime(entry.combatSeconds));
         rows.append(row);
     }
     scores.replaceChildren(rows);
@@ -67,8 +73,6 @@ async function loadBoard() {
     request?.abort();
     const controller = new AbortController();
     request = controller;
-    const scope = scopes[boardSelect.value];
-    const query = new URLSearchParams(scope);
     const timeout = setTimeout(() => controller.abort(), 8000);
 
     status.textContent = "Loading scores…";
@@ -77,7 +81,7 @@ async function loadBoard() {
     refresh.disabled = true;
 
     try {
-        const response = await fetch(`${endpoint}?${query}`, {
+        const response = await fetch(boardUrl, {
             cache: "no-store",
             credentials: "omit",
             signal: controller.signal
@@ -111,10 +115,5 @@ async function loadBoard() {
     }
 }
 
-boardSelect.addEventListener("change", loadBoard);
 refresh.addEventListener("click", loadBoard);
-const requestedBoard = new URLSearchParams(location.search).get("board");
-if (Object.hasOwn(scopes, requestedBoard)) {
-    boardSelect.value = requestedBoard;
-}
 loadBoard();
