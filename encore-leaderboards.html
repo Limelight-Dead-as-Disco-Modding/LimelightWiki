@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="The community leaderboard for Project Encore in Dead as Disco.">
+
+    <title>Encore Leaderboards | Limelight Documentation</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/images/limelight-favicon.png">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/styles.css">
+
+    <script
+        src="assets/js/site.js"
+        defer>
+    </script>
+    <link rel="stylesheet" href="assets/css/encore-leaderboards.css">
+    <script src="assets/js/encore-leaderboards.js" defer></script>
+</head>
+
+<body data-page="encore-leaderboards">
+    <a
+        class="skip-link"
+        href="#main-content">
+        Skip to documentation
+    </a>
+
+    <div class="site-shell">
+        <aside
+            id="documentationSidebar"
+            class="sidebar">
+            <div class="sidebar-brand">
+                <a
+                    class="brand-link"
+                    href="index.html"
+                    aria-label="Limelight documentation home">
+                    <span
+                        class="brand-mark"
+                        aria-hidden="true">
+                        <span class="brand-mark-inner">L</span>
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>LIMELIGHT</strong>
+                        <small>DOCUMENTATION</small>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="documentation-navigation" aria-label="Documentation">
+                <p class="navigation-label">DOCUMENTATION</p>
+                <a class="navigation-link" href="index.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Documentation Home</span>
+                </a>
+
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Limelight</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="getting-started.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Getting Started</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="mod-compatibility.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Mod Compatibility</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="live-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Live Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="profiles.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Profiles</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="xlr8-loader.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>XLR8 Loader</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="nexus-mods.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Nexus Mods</span>
+                </a>
+                    </div>
+                </details>
+
+                <a class="navigation-link" href="arenakit.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>ArenaKit</span>
+                </a>
+
+                <p class="navigation-label">PROJECTS</p>
+                <a class="navigation-link" href="project-encore.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Project Encore</span>
+                </a>
+                <a class="navigation-link navigation-sub-link active" href="encore-leaderboards.html" aria-current="page">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Encore Leaderboards</span>
+                </a>
+                <a class="navigation-link" href="multiplayer.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>LimelightMP (Experimental)</span>
+                </a>
+
+                <p class="navigation-label">ABOUT &amp; SUPPORT</p>
+                <a class="navigation-link" href="development-journey.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Development Journey</span>
+                </a>
+                <details class="navigation-group">
+                    <summary>
+                        <span class="navigation-diamond" aria-hidden="true"></span>
+                        <span>Support</span>
+                        <span class="navigation-chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="navigation-group-links">
+                <a class="navigation-link navigation-sub-link" href="testing-bug-reports.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Testing &amp; Bug Reports</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="troubleshooting.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Troubleshooting</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="privacy.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Privacy</span>
+                </a>
+                <a class="navigation-link navigation-sub-link" href="credits.html">
+                    <span class="navigation-diamond" aria-hidden="true"></span>
+                    <span>Credits</span>
+                </a>
+                    </div>
+                </details>
+            </nav>
+
+            <div class="sidebar-status">
+                <span class="status-dot" aria-hidden="true"></span>
+
+                <div>
+                    <strong>ENCORE PROTOTYPE</strong>
+                    <span>A run worth coming back for.</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="page-column">
+            <header class="topbar">
+                <button
+                    id="menuToggle"
+                    class="menu-button"
+                    type="button"
+                    aria-label="Open documentation navigation"
+                    aria-controls="documentationSidebar"
+                    aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="topbar-title">
+                    <span class="topbar-diamond" aria-hidden="true"></span>
+                    <strong>LIMELIGHT</strong>
+                    <span>/</span>
+                    <span>DEAD AS DISCO MOD MANAGER</span>
+                </div>
+
+                <a
+                    class="topbar-link"
+                    href="https://github.com/Limelight-Dead-as-Disco-Modding/Limelight-Encore"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    VIEW ON GITHUB
+                </a>
+            </header>
+
+            <main id="main-content" class="documentation-page encore-page">
+                <div class="breadcrumbs">
+                    <a href="index.html">DOCUMENTATION</a>
+                    <span>/</span>
+                    <a href="project-encore.html">PROJECT ENCORE</a>
+                    <span>/</span>
+                    <span>LEADERBOARDS</span>
+                </div>
+
+                <header class="documentation-hero encore-hero board-hero">
+                    <span class="eyebrow">PROJECT ENCORE · COMMUNITY SCORES</span>
+                    <h1>Encore Leaderboards</h1>
+                    <p>See who made it furthest. Each player’s best run is ranked by rounds cleared, then bosses defeated, then shortest combat time.</p>
+                </header>
+
+                <section class="board-panel" aria-label="Community leaderboard">
+                    <div class="board-toolbar">
+                        <div class="board-controls">
+                            <label class="board-control" for="board-scope">
+                                Ruleset and game build
+                                <select id="board-scope">
+                                    <option value="current">Encore v2 · CL-34941</option>
+                                    <option value="legacy">Encore v1 · CL-34094</option>
+                                </select>
+                            </label>
+                            <button id="board-refresh" type="button">Refresh</button>
+                        </div>
+                        <p class="board-status" id="board-status" role="status">Loading scores…</p>
+                    </div>
+
+                    <div class="board-scroll" role="region" aria-label="Score table" tabindex="0">
+                        <table class="board-table" id="board-table" aria-label="Encore personal bests" hidden>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col">Player</th>
+                                    <th scope="col">Rounds</th>
+                                    <th scope="col">Bosses</th>
+                                    <th scope="col">Combat time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="board-scores"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="board-footer">
+                        <p>Self-reported scores · <a href="privacy.html#encore-scores">Score privacy</a></p>
+                        <p id="board-updated"></p>
+                    </div>
+                    <noscript><p class="board-footer">Enable JavaScript to load community scores.</p></noscript>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div>
+                    <strong>LIMELIGHT</strong>
+                    <span>Made by Henreh</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="credits.html">Credits</a>
+                    <a href="troubleshooting.html">Support</a>
+                    <a href="https://github.com/Henreh1" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

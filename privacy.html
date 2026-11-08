@@ -220,6 +220,13 @@
                 </p>
 
                 <p>
+                    This page also covers the separate Project Encore prototype.
+                    Its community leaderboard sends player-linked results to an
+                    online service when online access is enabled, as described
+                    below.
+                </p>
+
+                <p>
                     The Early Access build does not include advertising,
                     behavioural analytics, or hidden usage tracking.
                 </p>
@@ -229,8 +236,9 @@
 
                     <p>
                         This page describes Limelight's current Early Access
-                        behaviour. It will be reviewed and expanded as the
-                        application develops.
+                        behaviour and Encore's current prototype. It will be
+                        reviewed as those features change. Last reviewed:
+                        4 November 2026.
                     </p>
                 </div>
             </section>
@@ -257,6 +265,8 @@
                     <li>Optional resource overlay preference</li>
                     <li>Live-session recovery information</li>
                     <li>Local LimelightMP session and diagnostic logs</li>
+                    <li>Encore run history, personal bests, pending score submissions, and online configuration</li>
+                    <li>Encore's temporary-playthrough recovery journal</li>
                 </ul>
 
                 <p>
@@ -372,6 +382,138 @@
             </section>
 
             <section
+                id="encore-scores"
+                class="guide-section">
+                <h2>Encore Scores and Steam Identity</h2>
+
+                <p>
+                    Encore reads your Steam display name and Steam ID through
+                    the Steam API already loaded by Dead as Disco. The Steam ID
+                    associates results with the same account. Encore does not
+                    ask for your Steam password. If Steam identity is unavailable,
+                    results remain local under Local player.
+                </p>
+
+                <p>
+                    Completed runs are saved locally first. With online access
+                    enabled, Encore submits the following information to the
+                    community leaderboard hosted on Cloudflare Workers and D1:
+                </p>
+
+                <ul class="guide-list">
+                    <li>Your Steam display name and Steam ID</li>
+                    <li>Completed rounds, defeated bosses, and combat time</li>
+                    <li>The run's finish time and ending reason</li>
+                    <li>A unique run ID and the ruleset, game-build, and submission-format identifiers</li>
+                </ul>
+
+                <p>
+                    The service also records when a submission was received.
+                    Save files, imported music, mod files, and diagnostic reports
+                    are not part of the score submission. The current service
+                    address is
+                    <code>https://encore-leaderboard.encore-leaderboard.workers.dev</code>.
+                </p>
+
+                <h3>What other people can read</h3>
+
+                <p>
+                    The public leaderboard returns up to 100 personal-best rows
+                    for a ruleset and game build. Each row contains a display
+                    name, completed rounds, defeated bosses, combat time, and
+                    run ID. Anyone can read or copy these public results,
+                    including applications displaying the board in-game or on
+                    a website.
+                </p>
+
+                <p>
+                    Steam IDs, individual finish times, ending reasons, and the
+                    full submitted run history are excluded from that public
+                    response. The API does not offer public database queries or
+                    administrative access. These are independent community
+                    scores: the current prototype does not authenticate Steam
+                    identity or verify gameplay on the server.
+                </p>
+
+                <p>
+                    When Steam pictures are enabled on the service, it sends
+                    the Steam IDs for leaderboard rows to Steam. It includes
+                    the image URL for a public profile when the Steam display
+                    name matches the submitted name. The viewer's browser
+                    loads the picture from Steam's image service. Players can
+                    request removal of their leaderboard data through
+                    <a href="troubleshooting.html">Support</a>.
+                </p>
+
+                <h3>Online access and local records</h3>
+
+                <div class="notice notice-warning">
+                    <strong>CURRENT PROTOTYPE DEFAULT</strong>
+
+                    <p>
+                        Online access is enabled on first launch with the
+                        configured service. There is currently no first-use
+                        sharing prompt. To disable online fetching and
+                        submissions, close the game, set <code>enabled</code> to
+                        <code>false</code> in the file below, then restart the
+                        game. Keep the other configuration fields unchanged.
+                    </p>
+                </div>
+
+                <div class="code-block">%LOCALAPPDATA%\Limelight\Encore\leaderboard-config.json</div>
+
+                <p>
+                    Disabling online access keeps local scoring available and
+                    does not remove previously uploaded results. Run history,
+                    personal bests, and pending submissions are stored beneath
+                    <code>%LOCALAPPDATA%\Limelight\Encore</code>. Pending
+                    submissions may be sent if online access is enabled again.
+                </p>
+
+                <h3>Retention and removal</h3>
+
+                <p>
+                    The service currently retains accepted runs and run IDs
+                    without an automatic expiry. Retained run IDs prevent the
+                    same submission being inserted again after a retry. It
+                    keeps one personal best per Steam account, ruleset, and
+                    game build.
+                </p>
+
+                <p>
+                    There is currently no in-game deletion control or public
+                    deletion API. Use <a href="troubleshooting.html">Support</a>
+                    to request removal of uploaded Encore data. Removal needs
+                    manual action by the service operator and verification of
+                    account ownership. Deleting local files alone does not
+                    remove server records.
+                </p>
+            </section>
+
+            <section
+                id="encore-saves"
+                class="guide-section">
+                <h2>Encore Temporary Saves</h2>
+
+                <p>
+                    Encore uses a temporary playthrough for a run and records
+                    the original save selection in
+                    <code>%LOCALAPPDATA%\Limelight\Encore\save-journal.json</code>.
+                    On cleanup it restores that selection and removes the
+                    temporary playthrough. If recovery fails, the journal is
+                    kept for a later retry. Shared game settings, music, and
+                    GlobalProgress remain shared with the base game.
+                </p>
+
+                <p>
+                    The journal stays on your computer and is not submitted to
+                    the leaderboard. Keep it until any pending restoration has
+                    completed; removing it can remove information needed to
+                    restore the original save selection.
+                </p>
+            </section>
+
+            <section
                 id="diagnostics"
                 class="guide-section">
                 <h2>Diagnostic Reports</h2>
@@ -431,12 +573,14 @@
                 <h2>Third-Party Services</h2>
 
                 <p>
-                    Some optional Limelight features communicate with external
-                    services selected by the user:
+                    Some Limelight and Encore features communicate with external
+                    services. Encore's current online default is explained in
+                    the <a href="#encore-scores">Encore scores section</a>:
                 </p>
 
                 <ul class="guide-list">
-                    <li>Steam for launching and validating Dead as Disco</li>
+                    <li>Steam for launching and validating Dead as Disco, and reading Encore's player identity</li>
+                    <li>Cloudflare Workers and D1 for Encore's community leaderboard</li>
                     <li>Tailscale for the optional private LimelightMP route</li>
                     <li>Nexus Mods for catalogue and download functionality</li>
                     <li>Discord for optional Rich Presence</li>
@@ -446,6 +590,12 @@
                 <p>
                     Each external service operates under its own account,
                     privacy, and acceptable-use policies.
+                </p>
+
+                <p>
+                    The Encore service uses the connecting IP address for
+                    request rate limiting through Cloudflare. That address is
+                    not stored as a field in the Encore score tables.
                 </p>
             </section>
 
@@ -460,9 +610,17 @@
                 </p>
 
                 <p>
-                    To remove all Limelight application data, first close Dead
-                    as Disco and Limelight. Then remove Limelight's application
-                    data folder:
+                    Before removing Encore's local data, allow any pending
+                    save restoration to finish. If recovery is unresolved,
+                    preserve <code>save-journal.json</code> and use
+                    <a href="troubleshooting.html">Support</a> before deleting
+                    the folder.
+                </p>
+
+                <p>
+                    Once recovery is complete, close Dead as Disco and Limelight.
+                    To remove all Limelight application data, remove the
+                    application data folder:
                 </p>
 
                 <div class="code-block">%LOCALAPPDATA%\Limelight</div>
@@ -470,8 +628,16 @@
                 <p>
                     Removing this folder clears saved settings, imported mod
                     metadata, cached catalogue information, and recovery state.
+                    It also clears Encore's local score history and pending
+                    submissions. It does not remove already uploaded scores.
                     Limelight will behave like a fresh installation the next
                     time it starts.
+                </p>
+
+                <p>
+                    Encore's online configuration is also removed. With the
+                    current prototype, launching Encore again recreates it with
+                    online access enabled by default.
                 </p>
             </section>
 
@@ -515,6 +681,8 @@
             <a href="#nexus">Nexus Mods</a>
             <a href="#discord">Discord Presence</a>
             <a href="#multiplayer">LimelightMP</a>
+            <a href="#encore-scores">Encore Scores</a>
+            <a href="#encore-saves">Encore Saves</a>
             <a href="#diagnostics">Diagnostic Reports</a>
             <a href="#resource-overlay">Resource Overlay</a>
             <a href="#third-parties">Third Parties</a>
