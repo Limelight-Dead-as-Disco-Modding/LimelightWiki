@@ -23,18 +23,10 @@ function createCell(row, value, className = "") {
     return cell;
 }
 
-function formatTime(seconds) {
-    const total = Math.floor(seconds);
-    const minutes = Math.floor(total / 60);
-    return `${minutes}:${String(total % 60).padStart(2, "0")}`;
-}
-
 function validScore(entry) {
     return entry && typeof entry.displayName === "string"
         && entry.displayName.trim().length > 0 && entry.displayName.length <= 64
-        && Number.isSafeInteger(entry.roundsCompleted) && entry.roundsCompleted >= 0
-        && Number.isSafeInteger(entry.bossesDefeated) && entry.bossesDefeated >= 0
-        && Number.isFinite(entry.combatSeconds) && entry.combatSeconds >= 0;
+        && Number.isSafeInteger(entry.roundsCompleted) && entry.roundsCompleted >= 0;
 }
 
 function playerBadge(entry) {
@@ -65,8 +57,6 @@ function renderScores(entries) {
         name.textContent = entry.displayName;
         player.append(playerBadge(entry), name);
         createCell(row, numberFormat.format(entry.roundsCompleted), "board-rounds");
-        createCell(row, numberFormat.format(entry.bossesDefeated), "board-number");
-        createCell(row, formatTime(entry.combatSeconds), "board-number");
         rows.append(row);
     }
     scores.replaceChildren(rows);

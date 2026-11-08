@@ -79,7 +79,6 @@
 
 .board-table {
     width: 100%;
-    min-width: 460px;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
 }
@@ -99,8 +98,8 @@
     text-transform: uppercase;
 }
 
-.board-table th:nth-child(n + 3),
-.board-table td:nth-child(n + 3) {
+.board-table th:last-child,
+.board-table td:last-child {
     text-align: right;
 }
 
